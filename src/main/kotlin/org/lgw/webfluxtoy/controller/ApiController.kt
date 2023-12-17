@@ -14,6 +14,4 @@ class ApiController {
             return Mono.just("Data:" + "$name");
         }
 
-
-
 }

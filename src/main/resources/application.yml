@@ -1,9 +1,30 @@
 spring:
+  profiles:
+    active: stress
+---
+spring:
   sql:
     init:
-      mode : embedded
-      schema-locations: classpath:datebase/schema.sql
+      mode: embedded
+      schema-locations: classpath:database/schema.sql
+  output:
+    ansi:
+      enabled: always
 logging:
   level:
-    status.dev : debug
-    org.springframework.r2dbc.core : debug
+    dev.fastcampus: debug
+    org.springframework.r2dbc.core: off
+api:
+  externalUrl: http://localhost:8081
+---
+spring:
+  config:
+    activate:
+      on-profile: stress
+  r2dbc:
+    url: r2dbc:pool:mariadb://localhost:3306/sample
+    username: user
+    password: 1234
+  sql:
+    init:
+      mode: never
