@@ -1,1 +1,9 @@
-
+spring:
+  sql:
+    init:
+      mode : embedded
+      schema-locations: classpath:datebase/schema.sql
+logging:
+  level:
+    status.dev : debug
+    org.springframework.r2dbc.core : debug
