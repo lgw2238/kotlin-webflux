@@ -31,10 +31,11 @@ class WebFluxController(
         return service.getAll(title)
     }
 
-    @PostMapping()
+    @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "게시물 생성")
     fun create(@RequestBody request: ReqCreate): Mono<Article> {
+        logger.info(request.toString());
         return service.create(request)
     }
 

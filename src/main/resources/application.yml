@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: stress
+    active: local
 --- ## api swagger 설정
 spring:
   mvc:
