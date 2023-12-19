@@ -3,4 +3,4 @@ GET localhost:8080/getApiData?name=1234
 
 
 ###
-POST {{domain}}}/article
+GET localhost:8080/webflux/all

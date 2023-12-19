@@ -1,6 +1,22 @@
 spring:
   profiles:
     active: stress
+--- ## api swagger 설정
+spring:
+  mvc:
+    path match:
+      matching-strategy: ant_path_matcher
+--- ## webflux swagger 설정
+springdoc:
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8
+  packages-to-scan: org.lgw.webfluxtoy.controller
+  swagger-ui:
+    path: swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  cache:
+    disabled: true
 ---
 spring:
   sql:
@@ -22,7 +38,7 @@ spring:
     activate:
       on-profile: stress
   r2dbc:
-    url: r2dbc:pool:mariadb://localhost:3306/sample
+    url: r2dbc:pool:mariadb://localhost:3306/webflux
     username: user
     password: 1234
   sql:
